@@ -42,6 +42,7 @@ class Trello_Hash
 		array.map!{ |hash, string, x| [(hash - x) / SALT, string + LETTERS[x]]}
 		.select!{ |hash,string| hash.has_no_remainder? }
 	end
+	
 
 	def _final_result_filter(array)
 		array.select{|hash,string| hash == INIT_HASH}.map{|hash,string| string.reverse}[0]
